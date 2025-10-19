@@ -24,11 +24,11 @@ class R34api():
         async with self.session.get(f"{self.api}/posts?limit=20&pid={page}&tags=sort:id:desc+{tag}+-young*+-loli*", headers=self.headers) as req:
             return await req.json()
 
-    async def recomend_posts(self):
-        async with self.session.get(f"{self.api}/posts?limit=20&pid=0&tags=sort:id:desc+-young*+-loli*", headers=self.headers) as req:
+    async def recomend_posts(self,page:int):
+        async with self.session.get(f"{self.api}/posts?limit=20&pid={page}&tags=sort:id:desc+-young*+-loli*", headers=self.headers) as req:
             return await req.json()
 
-    async def posts_count(self,tag:str):
-        async with self.session.get(f"{self.api}/count?limit=20&pid=0&tags=sort:id:desc+{tag}+-young*+-loli*", headers=self.headers) as req:
+    async def posts_count(self,page:int,tag:str):
+        async with self.session.get(f"{self.api}/count?limit=20&pid={page}&tags=sort:id:desc+{tag}+-young*+-loli*", headers=self.headers) as req:
             return parse(await req.text())
 
