@@ -15,7 +15,7 @@ from rule34api import R34api
 from asyncio import run
 async def main():
     r34api = R34api()
-    await r34api.recomend_posts()
+    await r34api.recomend_posts(1)
 run(main())
 ```
 </img>
